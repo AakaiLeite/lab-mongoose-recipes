@@ -48,7 +48,6 @@ const manageRecipes = async () => {
     };
     disconnect()
       .then((res) => console.log("Disconnected from Database"))
-      .catch((err) => console.log("Error Disconnecting from Database", err));
   } catch (error) {
     console.log(error);
   }
