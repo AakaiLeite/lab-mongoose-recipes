@@ -39,15 +39,15 @@ const manageRecipes = async () => {
     console.log(hollandaiseRecipe.title);
     let recipesData = await Recipe.insertMany(data);
     recipesData.forEach((recipe) => console.log(recipe));
-    Recipe.findByIdAndUpdate("64cbc43f288bd53d83466dae", { duration: 100 });
+    Recipe.findOneAndUpdate({id: "64cbc43f288bd53d83466dae"}, { duration: 100 });
     console.log("Updated Duration of Rigatoni alla Genovese");
     Recipe.deleteOne({ title: "Carrot Cake" });
     console.log("Deleted Carrot Cake");
     const disconnect = async () => {
       await mongoose.connection.close();
     };
-    disconnect()
-      .then((res) => console.log("Disconnected from Database"))
+    disconnect();
+    console.log("Disconnected from Database");
   } catch (error) {
     console.log(error);
   }
